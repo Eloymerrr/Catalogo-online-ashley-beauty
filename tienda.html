@@ -9,91 +9,93 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <link rel="shortcut icon" href="./img/AshleyBeautyyy-icon.png" type="image/x-icon">
   <!-- CSS Bootstrap -->
-  <link rel="stylesheet" href="./Bootstrap_v5.3.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!--Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="stylesheet" href="./Instalador de Font_Awesome/css/all.min.css">
   <!-- CSS-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link href="./css/mycss3.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+  <link href="css/mycss3.css" rel="stylesheet">
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
 
-    .b-example-divider {
-      width: 100%;
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+  .b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
 
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
 
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
 
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
+  .nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+  }
 
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
+  .nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .btn-bd-primary {
-      --bd-violet-bg: #712cf9;
-      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  .btn-bd-primary {
+    --bd-violet-bg: #712cf9;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
 
-      --bs-btn-font-weight: 600;
-      --bs-btn-color: var(--bs-white);
-      --bs-btn-bg: var(--bd-violet-bg);
-      --bs-btn-border-color: var(--bd-violet-bg);
-      --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: #6528e0;
-      --bs-btn-hover-border-color: #6528e0;
-      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-      --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: #5a23c8;
-      --bs-btn-active-border-color: #5a23c8;
-    }
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+  }
 
-    .bd-mode-toggle {
-      z-index: 1500;
-    }
+  .bd-mode-toggle {
+    z-index: 1500;
+  }
 
-    .bd-mode-toggle .dropdown-menu .active .bi {
-      display: block !important;
-    }
-  </style>
+  .bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+  }
+</style>
+
 </head>
 
 <body>
@@ -118,7 +120,6 @@
   </svg>
 
 <!-- NAVBAR -->
-
   <header>
     <nav class="navbar navbar-expand-md fixed-top"
       style="background: #EFB7FF;  /* fallback for old browsers */
@@ -178,14 +179,12 @@
 
 
   </header>
-
 <!--END NAVBAR -->
 
 
 <main>
 
     <!-- SLIDER AUTOMATICO DE MARCAS  -->
-
     <div class="sliderr" style="position:relative; top:20px;">
       <div class="slide-track">
         <div class="slide">
@@ -233,7 +232,6 @@
         </div>
       </div>
     </div>
-
     <!-- END SLIDER AUTOMATICO DE MARCAS  -->
 
 
@@ -337,12 +335,6 @@
                     </div>
                   </div>
 
-                  
-                  
-                
-
-                  
-
                   <div class="producto-index product product-item " category="skincare">
                     <img class="ppp" src="./img/Skincare/Skincare (72).jpg" alt="">
                     <div class="price content-card-product" data-product-id="48">
@@ -370,10 +362,6 @@
                       </button>
                     </div>
                   </div>
-
-                  
-
-                 
 
                   <div class="producto-index product product-item " category="skincare">
                     <img class="ppp" src="./img/Skincare/Skincare (6).jpg" alt="">
@@ -2115,7 +2103,7 @@
                     </div>
                   </div>
 
-                  <div class="producto-index product product-item " category="skincare">
+                  <div class="producto-index product product-item " category="boutique">
                     <img class="ppp" src="./img/Boutique/Boutique  (51).jpg" alt="">
                     <div class="price content-card-product" data-product-id="111">
                       <h3>Franelas basicas con estampados</h3>
@@ -2169,8 +2157,6 @@
                     </div>
                   </div> -->
 
-                 
-
                   <div class="producto-index product product-item " category="makeup">
                     <img class="ppp" src="./img/Makeup/Boutique (3).jpg" alt="">
                     <div class="price content-card-product" data-product-id="116">
@@ -2184,9 +2170,6 @@
                       </button>
                     </div>
                   </div>
-
-
-
 
                   <div class="producto-index product product-item " category="makeup">
                     <img class="ppp" src="./img/Skincare/Skincare (56).jpg" alt="">
@@ -3360,7 +3343,7 @@
                   <i class="fas fa-times"></i>
                   <img src="./img/Skincare/Skincare (28).jpg" alt="">
                   <h3>Cepillo capilar</h3>
-                  <p>El cepillo capilar para masajeador y lavarte el cabello es un dispositivo diseado par facilitar la
+                  <p>Es un dispositivo diseñado para facilitar la
                     limpieza y masaje del cuero cabelludo durante el lavado del cabello.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
@@ -3568,7 +3551,7 @@
                   <i class="fas fa-times"></i>
                   <img src="./img/Skincare/Skincare (39).png" alt="">
                   <h3>Cepillo Capilar</h3>
-                  <p>El cepillo capilar para masajeador y lavarte el cabello es un dispositivo diseado par facilitar la
+                  <p>Es un dispositivo diseñado para facilitar la
                     limpieza y masaje del cuero cabelludo durante el lavado del cabello.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
@@ -6159,9 +6142,7 @@
 
             <div class="social-icons">
               <span class="whatsapp">
-                <a class="fa-brands fa-whatsapp"
-                  href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+de+:+un+*Aichun+Beauty+crema+blanqueadora+para+rostro+y+cuerpo*%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
-                  target="_blank" title="Whatsapp"></a>
+                <a class="fa-brands fa-whatsapp" href="https://wa.me/+584264906606" target="_blank" title="Whatsapp"></a>
               </span>
               <span class="facebook">
                 <a class="fa-brands fa-facebook-f" href="https://www.facebook.com/ashleybeautyyyyy?mibextid=ZbWKwL"
@@ -6256,7 +6237,15 @@
   <!-- END BACK TO TOP BOTTOM  -->
 
 
-  <!-- JS Jquery -->
+
+   <!-- Bootstrap JavaScript Libraries -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+   integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+ </script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+   integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+ </script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="./js/slider.js"></script>
@@ -6265,12 +6254,6 @@
   <script src="./js/filtar-por-categorias.js"></script>
   <script src="js/buscador-en-tiempo-real.js"></script>
   <script src="./js/modal.js" defer></script>
-  <script src="./Bootstrap_v5.3.2/js/jquery-3.5.0.min.js"></script>
-  <!-- Popper -->
-  <script src="./Bootstrap_v5.3.2/js/popper.min.js"></script>
-  <!-- JS Bootstrap -->
-  <script src="./Bootstrap_v5.3.2/js/bootstrap.min.js"></script>
-  <!--OTROS SCRIPT -->
 
 </body>
 
