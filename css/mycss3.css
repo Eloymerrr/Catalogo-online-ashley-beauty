@@ -1068,7 +1068,7 @@ small{
 .loading-screen{
   display: grid;
   place-items: center;
-  margin-left: -50px;
+  margin-left: -20px;
   position: relative;
  
 }
