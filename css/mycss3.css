@@ -307,12 +307,6 @@ html{
   scroll-behavior: smooth;
 }
 
-.img-shop{
-  display: flex;
-  place-items: center;
-  margin-left: 15px;
-}
-
 /*HASTA AQUI BOTON HACIA ARRIBA */
 
 
@@ -991,8 +985,8 @@ html{
 
 .social-icons span  {
 	border-radius: 50%;
-	width: 3rem;
-	height: 3rem;
+	width: 2.5rem;
+	height: 2.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1000,7 +994,7 @@ html{
 
 .social-icons span a {
 	color: #fff;
-	font-size: 20px;
+	font-size: 1rem;
   margin-top: 3px;
 }
 
@@ -1070,99 +1064,6 @@ small{
 /* END FOOTER*/
 
 
-.loader {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 100%;
-}
-
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 6px;
-  border-radius: 50%;
-  -webkit-animation: dot-pulse2 1.5s ease-in-out infinite;
-  animation: dot-pulse2 1.5s ease-in-out infinite;
-}
-
-.dot-1 {
-  background-color: #4285f4;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-
-.dot-2 {
-  background-color: #34a853;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
-}
-
-.dot-3 {
-  background-color: #fbbc05;
-  -webkit-animation-delay: 0.6s;
-  animation-delay: 0.6s;
-}
-
-.dot-4 {
-  background-color: #ea4335;
-  -webkit-animation-delay: 0.9s;
-  animation-delay: 0.9s;
-}
-
-.dot-5 {
-  background-color: #4285f4;
-  -webkit-animation-delay: 1.2s;
-  animation-delay: 1.2s;
-}
-
-/* Variasi baru */
-.dot-6 {
-  background-color: #0f9d58;
-  -webkit-animation-delay: 1.5s;
-  animation-delay: 1.5s;
-}
-
-.dot-7 {
-  background-color: #673ab7;
-  -webkit-animation-delay: 1.8s;
-  animation-delay: 1.8s;
-}
-
-.dot-8 {
-  background-color: #ff5722;
-  -webkit-animation-delay: 2.1s;
-  animation-delay: 2.1s;
-}
-
-@keyframes dot-pulse2 {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    opacity: 0.5;
-  }
-
-  50% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    opacity: 0.5;
-  }
-}
-
-
 /* RESPONSIVE CSS */
 
 @media (max-width:991px) {
@@ -1170,10 +1071,6 @@ small{
   .category_list{
    margin-left: 50px;
    
-  }
-
-  .loader{
-    margin-right: -100px;
   }
 
   .Buscar{
@@ -1184,8 +1081,6 @@ small{
   .img-shop { 
     display: grid;
     place-items: center;
-    margin-left: -5px;
-    
     
   }
 
