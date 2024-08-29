@@ -210,6 +210,7 @@ a::after {
 
 .span-titu{
   font-size: 40px;
+  font-weight: 600;
 }
 
 .Buscar input{
@@ -723,12 +724,8 @@ html{
    
   }
 
-
   
   
-
-
-
   .container .products-container{
     position: relative;
     left: -25px;
@@ -1064,9 +1061,58 @@ small{
 /* END FOOTER*/
 
 
+/* From Uiverse.io by akshat-patel28 */ 
+.loader {
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border-right: 3px solid;
+  width: 0px;
+  animation: typewriter 2s steps(10)  infinite alternate , blink 0.5s steps(10) infinite;
+}
+
+.loader-text {
+  font-size: 30px;
+  font-weight: 900;
+  background: linear-gradient(to right,#C39EEE, #155799);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 250px;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: rgba(255,255,255,.75);
+    ;
+  }
+
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+
 /* RESPONSIVE CSS */
 
 @media (max-width:991px) {
+
+    .loader{
+      position: relative;
+      top: 30px;
+      margin-top: 10px;
+      left: -5px;
+    }
+   
   
   .category_list{
    margin-left: 50px;
