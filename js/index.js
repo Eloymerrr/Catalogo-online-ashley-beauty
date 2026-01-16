@@ -35,6 +35,7 @@ const toggleFavorite = (product) => {
         favorites.push(product);
     }
     updateFavoritesInLocalStorage();
+    showHTML(); // Asegurar que se actualice el HTML inmediatamente después de cambiar el estado
 };
 
 // Función para remover un producto específico de favoritos
@@ -98,7 +99,7 @@ btnsFavorite.forEach(button => {
             image: card.closest('.producto-index').querySelector('img').src // Obtener la URL de la imagen
         };
         toggleFavorite(product);
-        showHTML();
+        // showHTML(); // Ya se llama dentro de toggleFavorite, así que se puede remover aquí para evitar duplicados
     });
 });
 
@@ -118,4 +119,4 @@ btnClose.addEventListener('click', () => {
 
 // Inicialización
 loadFavoritesFromLocalStorage();
-updateFavoriteMenu();
+// updateFavoriteMenu(); // Ya se llama dentro de showHTML si hay datos cargados, o se puede dejar para inicializar vacío si no hay nada    16/012026
