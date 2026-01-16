@@ -58,7 +58,8 @@ const updateFavoriteMenu = () => {
     // Añadir evento a los botones de eliminar
     document.querySelectorAll('.remove-favorite').forEach(button => {
         button.addEventListener('click', (e) => {
-            const productId = e.target.dataset.id;
+            // Cambiar para obtener el data-id del botón, incluso si se hace clic en el icono
+            const productId = e.target.closest('button').dataset.id;
             removeFavorite(productId);
         });
     });
