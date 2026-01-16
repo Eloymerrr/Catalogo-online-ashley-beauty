@@ -119,4 +119,4 @@ btnClose.addEventListener('click', () => {
 
 // Inicialización
 loadFavoritesFromLocalStorage();
-// updateFavoriteMenu(); // Ya se llama dentro de showHTML si hay datos cargados, o se puede dejar para inicializar vacío si no hay nada    16/012026
+// updateFavoriteMenu(); // Ya se llama dentro de showHTML si hay datos cargados, o se puede dejar para inicializar vacío si no hay nada    16/01/2026
