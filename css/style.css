@@ -529,7 +529,48 @@ a::after {
 /* end slider automatico de marcas */
 
 
+/* Animación suave para la aparición y desaparición del mensaje */
+#result-message {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Aumenté el tiempo a 0.5s para una transición más suave */
+  opacity: 0;
+  visibility: hidden;
+}
 
+#result-message .alert {
+  opacity: 0;
+  transform: translateY(-10px); /* Agregué un ligero desplazamiento vertical para un efecto de slide suave */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave para opacidad y transformación */
+}
+
+#result-message .alert.show {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a la posición original */
+}
+
+/* Cuando el mensaje está presente, mostrarlo */
+#result-message:not(:empty) {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsividad: Asegurar que el mensaje se adapte a cualquier dispositivo */
+#result-message {
+  margin-top: 10px;
+  font-weight: bold;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* En pantallas pequeñas, ajustar padding y tamaño de fuente */
+@media (max-width: 768px) {
+  #result-message .alert {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+  }
+  #result-message {
+      margin-top: 5px;
+  }
+}
 
 
 /* Los mejores productos para ti  */

@@ -694,7 +694,9 @@ html{
   border-radius: 20px;
 }
 
-
+.product-item {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
 
 .products-preview .preview .buttons a.cart:hover{
   background: green;

@@ -255,7 +255,7 @@
               <br>
               <br>
               <br>
-              <div class="category_list ">
+              <div class="category_list">
                 <a class="category_item" category="all">Todo</a>
                 <a class="category_item" category="skincare">Skincare</a>
                 <a class="category_item" category="makeup">Makeup</a>
@@ -267,16 +267,13 @@
 
             <div class="col-m-9 col-l-7">
 
-              <!-- BUSCADOR EN TIEMPO REAL-->
-              <div class="Buscar ">
+              <!-- BUSCADOR EN TIEMPO REAL -->
+              <div class="Buscar">
                 <span class="span-titu">Tienda</span>
-                <input class="" type="text" name="" id="find" placeholder="Buscar productos " required
+                <input class="" type="text" name="" id="find" placeholder="Buscar productos" required
                   onkeyup="search()">
-              </div> 
+              </div>
 
-              <!---->
-
-              <!-- END BUSCADOR EN TIEMPO REAL -->
 
 
               <!-- MINI MENU BREADCRUMB  -->
@@ -287,8 +284,19 @@
                   <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Tienda</li>
                 </ol>
+
+                <!-- Agregamos un div para mostrar el mensaje de resultados -->
+                <div id="result-message" style="margin-top: 10px; font-weight: bold;"></div>
+                <!--HASTA AQUI Agregamos un div para mostrar el mensaje de resulta-->
+
               </nav>
+
               <!-- MINI MENU BREADCRUMB  -->
+
+
+
+              <!-- END BUSCADOR EN TIEMPO REAL -->
+
 
 
               <!-- PRODUCTOS -->
@@ -1045,7 +1053,7 @@
                   <div class="producto-index product product-item " category="makeup">
                     <img class="ppp" src="./img/Makeup/Boutique (54).png" alt="">
                     <div class="price content-card-product" data-product-id="165">
-                      <h3>Grenobil tinta de labios</h3>
+                      <h3>Grenobil tintas de labios</h3>
                       <span class="precio">$a consultar</span>
                       <button type="button" id="icons"><span class="fas fa-eye producto eye"
                           data-name="p-165"></span></button>
@@ -1643,7 +1651,7 @@
                   <div class="producto-index product product-item " category="makeup">
                     <img class="ppp" src="./img/Makeup/Boutique (20).png" alt="">
                     <div class="price content-card-product" data-product-id="133">
-                      <h3>Tinta de labios</h3>
+                      <h3>Tintas de labios</h3>
                       <span class="precio">$a consultar</span>
                       <button type="button" id="icons"><span class="fas fa-eye producto eye"
                           data-name="p-133"></span></button>
@@ -3361,13 +3369,13 @@
                 <div class="preview" data-target="p-133">
                   <i class="fas fa-times"></i>
                   <img src="./img/Makeup/Boutique (20).png" alt="">
-                  <h3>Tinta de labios</h3>
-                  <p>Tinta labial de la línea Wardabeauty en un tono específico.</p>
+                  <h3>Tintas de labios</h3>
+                  <p>Tintas labial de la línea Wardabeauty en un tono específico.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
                     <a href="#" class="buy">buy now</a>
                     <a class=" cart"
-                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Tinta+de+labios+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
+                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Tintas+de+labios+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
                       target="_blank" title="Whatsapp"> <img style="width: 25px; height:25px;" src="./img/whatsapp.png"
                         alt=""> <span class=""
                         style="font-size: 22px; font-weight: 500; top: 5px; position:relative; left:10px; text-transform: capitalize;">consultar</span></a>
@@ -3797,13 +3805,13 @@
                 <div class="preview" data-target="p-165">
                   <i class="fas fa-times"></i>
                   <img src="./img/Makeup/Boutique (54).png" alt="">
-                  <h3>Grenobil tinta de labios</h3>
-                  <p>Tinta de labios de diferentes colores de la nuestra marca favrita grenobil.</p>
+                  <h3>Grenobil tintas de labios</h3>
+                  <p>Tintas de labios de diferentes colores de la nuestra marca favrita grenobil.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
                     <a href="#" class="buy">buy now</a>
                     <a class=" cart"
-                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Grenobil+tinta+de+labios+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
+                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Grenobil+tintas+de+labios+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
                       target="_blank" title="Whatsapp"> <img style="width: 25px; height:25px;" src="./img/whatsapp.png"
                         alt=""> <span class=""
                         style="font-size: 22px; font-weight: 500; top: 5px; position:relative; left:10px; text-transform: capitalize;">consultar</span></a>
@@ -3816,7 +3824,7 @@
                   <i class="fas fa-times"></i>
                   <img src="./img/Makeup/Boutique (55).png" alt="">
                   <h3>Grenobil lapiz labial</h3>
-                  <p>Tintas labiales de la marca Grenobil en diferentes tonalidades.</p>
+                  <p>Tintass labiales de la marca Grenobil en diferentes tonalidades.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
                     <a href="#" class="buy">buy now</a>
@@ -3851,13 +3859,13 @@
                 <div class="preview" data-target="p-168">
                   <i class="fas fa-times"></i>
                   <img src="./img/Makeup/Boutique (57).png" alt="">
-                  <h3>Tintas de labios Sanrio</h3>
-                  <p>Tintas labiales con colores y diseños inspirados en Sanrio.</p>
+                  <h3>Tintass de labios Sanrio</h3>
+                  <p>Tintass labiales con colores y diseños inspirados en Sanrio.</p>
                   <div class="price">$2.00</div>
                   <div class="buttons">
                     <a href="#" class="buy">buy now</a>
                     <a class=" cart"
-                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Tintas+de+labios+Sanrio+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
+                      href="https://wa.me/584264906606?text=Hola+Ashley+Beauty,Visite+tu+pagina+web+y+estoy+interesado+en+consultar+el+precio+del+:+*(+Tintass+de+labios+Sanrio+)*+%0D%0A%0D%0A%0D%0A¡Saludos!+Espero+su+respuesta"
                       target="_blank" title="Whatsapp"> <img style="width: 25px; height:25px;" src="./img/whatsapp.png"
                         alt=""> <span class=""
                         style="font-size: 22px; font-weight: 500; top: 5px; position:relative; left:10px; text-transform: capitalize;">consultar</span></a>
