@@ -1,69 +1,22 @@
-
-  function search() {
-    let filter = document.getElementById('find').value.toUpperCase();
-    let item = document.querySelectorAll('.product');
-    let l = document.getElementsByTagName('h3');
-    for (var i = 0; i <= l.length; i++) {
-        let a = item[i].getElementsByTagName('h3')[0];
-        let value = a.innerHTML || a.innerText || a.textContent;
-        if (value.toUpperCase().indexOf(filter) > -1) {
-            item[i].style.display = "";
+function search() {
+    // Obtener el valor del filtro y convertirlo a mayúsculas
+    const filter = document.getElementById('find').value.toUpperCase();
+    
+    // Seleccionar todos los elementos con clase 'product'
+    const items = document.querySelectorAll('.product');
+    
+    // Iterar sobre cada producto
+    items.forEach(item => {
+        // Buscar el elemento h3 dentro del producto
+        const h3 = item.querySelector('h3');
+        if (h3) {
+            // Obtener el texto del h3 en mayúsculas
+            const value = h3.textContent.toUpperCase();
+            // Mostrar u ocultar el producto según si contiene el filtro
+            item.style.display = value.includes(filter) ? '' : 'none';
+        } else {
+            // Si no hay h3, ocultar el producto (puedes ajustar este comportamiento)
+            item.style.display = 'none';
         }
-        else {
-            item[i].style.display = "none";
-        }
-    }
+    });
 }
-
-
-
-
-
-
-// function includeHTML() {
-//     var z, i, elmnt, file, xhttp;
-//     /*loop through a collection of all HTML elements:*/
-//     z = document.getElementsByTagName("*");
-//     for (i = 0; i < z.length; i++) {
-//       elmnt = z[i];
-//       /*search for elements with a certain atrribute:*/
-//       file = elmnt.getAttribute("include-html");
-//       if (file) {
-//         /*make an HTTP request using the attribute value as the file name:*/
-//         xhttp = new XMLHttpRequest();
-//         xhttp.onreadystatechange = function() {
-//           if (this.readyState == 4) {
-//             if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-//             if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-//             /*remove the attribute, and call this function once more:*/
-//             elmnt.removeAttribute("include-html");
-//             includeHTML();
-//           }
-//         }      
-//         xhttp.open("GET", file, true);
-//         xhttp.send();
-//         /*exit the function:*/
-//         return;
-//       }
-//     }
-//   };
-//   includeHTML();
-
-
-
-
-  /**
-   * Back to top button
-   
-   let backtotop = select('.back-to-top')
-   if (backtotop) {
-     const toggleBacktotop = () => {
-       if (window.scrollY > 100) {
-         backtotop.classList.add('active')
-       } else {
-         backtotop.classList.remove('active')
-       }
-     }
-     window.addEventListener('load', toggleBacktotop)
-     onscroll(document, toggleBacktotop)
-   }*/

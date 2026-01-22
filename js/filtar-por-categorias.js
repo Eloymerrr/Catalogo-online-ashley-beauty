@@ -1,37 +1,31 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    // Agregando clase ACTIVE al primer enlace (categoría "all")
+    $('.category_list .category_item[category="all"]').addClass('ct_item-active');
 
-	// AGREGANDO CLASE ACTIVE AL PRIMER ENLACE ====================
-	$('.category_list .category_item[category="all"]').addClass('ct_item-active');
+    // Función para filtrar productos por categoría
+    $('.category_item').click(function() {
+        var catProduct = $(this).attr('category');
+        console.log(catProduct);
 
-	// FILTRANDO PRODUCTOS  ============================================
+        // Removiendo clase ACTIVE de todos los enlaces y agregándola al seleccionado
+        $('.category_item').removeClass('ct_item-active');
+        $(this).addClass('ct_item-active');
 
-	$('.category_item').click(function(){
-		var catProduct = $(this).attr('category');
-		console.log(catProduct);
+        // Ocultando productos con animación (escala a 0 y luego hide)
+        $('.product-item').css('transform', 'scale(0)');
+        setTimeout(function() {
+            $('.product-item').hide();
+        }, 400);
 
-		// AGREGANDO CLASE ACTIVE AL ENLACE SELECCIONADO
-		$('.category_item').removeClass('ct_item-active');
-		$(this).addClass('ct_item-active');
-
-		// OCULTANDO PRODUCTOS =========================
-		$('.product-item').css('transform', 'scale(0)');
-		function hideProduct(){
-			$('.product-item').hide();
-		} setTimeout(hideProduct,400);
-
-		// MOSTRANDO PRODUCTOS =========================
-		function showProduct(){
-			$('.product-item[category="'+catProduct+'"]').show();
-			$('.product-item[category="'+catProduct+'"]').css('transform', 'scale(1)');
-		} setTimeout(showProduct,400);
-	});
-
-	// MOSTRANDO TODOS LOS PRODUCTOS =======================
-
-	$('.category_item[category="all"]').click(function(){
-		function showAll(){
-			$('.product-item').show();
-			$('.product-item').css('transform', 'scale(1)');
-		} setTimeout(showAll,400);
-	});
+        // Mostrando productos de la categoría seleccionada con animación
+        setTimeout(function() {
+            if (catProduct === 'all') {
+                // Mostrar todos los productos si es "all"
+                $('.product-item').show().css('transform', 'scale(1)');
+            } else {
+                // Mostrar solo los productos de la categoría específica
+                $('.product-item[category="' + catProduct + '"]').show().css('transform', 'scale(1)');
+            }
+        }, 400);
+    });
 });
