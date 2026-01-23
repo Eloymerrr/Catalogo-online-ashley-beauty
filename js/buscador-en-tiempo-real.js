@@ -12,18 +12,18 @@ function search() {
         if (h3) {
             // Obtener el texto del h3 en mayúsculas
             const value = h3.textContent.toUpperCase();
-            // Usar regex para coincidencia exacta de palabra completa (case-insensitive)
-            const regex = new RegExp(`\\b${filter}\\b`, 'i');
-            // Mostrar u ocultar el producto según si contiene la palabra exacta
-            item.style.display = regex.test(value) ? '' : 'none';
+            // Usar regex para coincidencia que contenga el filtro (case-insensitive), no necesariamente palabra completa
+            const regex = new RegExp(filter, 'i');
+            // Mostrar u ocultar el producto según si contiene el filtro (usando visibility para mantener el espacio y evitar desorden visual)
+            item.style.visibility = regex.test(value) ? 'visible' : 'hidden';
         } else {
             // Si no hay h3, ocultar el producto
-            item.style.display = 'none';
+            item.style.visibility = 'hidden';
         }
     });
 
     // Contar los productos visibles después del filtro
-    const visibleItems = Array.from(items).filter(item => item.style.display !== 'none');
+    const visibleItems = Array.from(items).filter(item => item.style.visibility !== 'hidden');
     const visibleCount = visibleItems.length;
 
     // Obtener el elemento del mensaje
@@ -34,9 +34,9 @@ function search() {
         // Generar el mensaje basado en la cantidad de productos visibles y el filtro
         let message = '';
         if (visibleCount > 0) {
-            message = `Se encontraron ${visibleCount} producto${visibleCount === 1 ? '' : 's'}"${filter.toLowerCase()}".`;
+            message = `Se encontraron ${visibleCount} producto${visibleCount === 1 ? '' : 's'} "${filter.toLowerCase()}".`;
         } else {
-            message = `No se encontraron productos  "${filter.toLowerCase()}".`;
+            message = `No se encontraron productos con "${filter.toLowerCase()}".`;
         }
 
         // Mostrar el mensaje usando Bootstrap con animación suave
