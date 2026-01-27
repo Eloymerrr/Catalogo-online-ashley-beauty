@@ -2,30 +2,33 @@
 const previewContainer = document.querySelector('.products-preview');
 const previewBox = previewContainer.querySelectorAll('.preview');
 
-// Seleccionamos todos los botones de "ojo" directamente
-document.querySelectorAll('.products-container .product .eye').forEach(eyeButton => {
-    
-    eyeButton.onclick = (e) => {
-        // Evitamos que el clic se propague a otros elementos (por si acaso)
-        e.stopPropagation();
+// Seleccionamos todos los botones que contienen el icono del ojo
+document.querySelectorAll('.products-container .product button').forEach(button => {
+    // Verificamos si el botón contiene el span con clase 'eye'
+    const eyeSpan = button.querySelector('.eye');
+    if (eyeSpan) {
+        button.onclick = (e) => {
+            // Evitamos que el clic se propague a otros elementos (por si acaso)
+            e.stopPropagation();
 
-        // 1. Activar el contenedor principal
-        previewContainer.classList.add('active');
-        document.body.classList.add('no-scroll');
+            // 1. Activar el contenedor principal
+            previewContainer.classList.add('active');
+            document.body.classList.add('no-scroll');
 
-        // 2. Obtener el nombre del producto desde el data-name del ojo
-        let name = eyeButton.getAttribute('data-name');
+            // 2. Obtener el nombre del producto desde el data-name del span dentro del botón
+            let name = eyeSpan.getAttribute('data-name');
 
-        // 3. Mostrar el modal específico que coincida con el data-target
-        previewBox.forEach(preview => {
-            let target = preview.getAttribute('data-target');
-            if (name === target) {
-                preview.classList.add('active');
-            } else {
-                preview.classList.remove('active'); // Limpiar otros por seguridad
-            }
-        });
-    };
+            // 3. Mostrar el modal específico que coincida con el data-target
+            previewBox.forEach(preview => {
+                let target = preview.getAttribute('data-target');
+                if (name === target) {
+                    preview.classList.add('active');
+                } else {
+                    preview.classList.remove('active'); // Limpiar otros por seguridad
+                }
+            });
+        };
+    }
 });
 
 // Lógica para cerrar el modal
@@ -48,4 +51,3 @@ previewContainer.onclick = (e) => {
         document.body.classList.remove('no-scroll');
     }
 };
-
