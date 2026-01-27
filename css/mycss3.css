@@ -470,16 +470,10 @@ html{
   font-weight: 700;
   color: rgba(15, 116, 15, 0.887);
 }
+/*HASTA AQUI LISTA DE DESEOS*/
 
 
-/* ------------------- */
-
-
-
-
-
-/* PRODUCTOS */
-
+/****** PRODUCTOS **********/
 /* Variables CSS para consistencia y facilidad de mantenimiento */
 :root {
   --primary-color: #bc90ee;
@@ -535,7 +529,6 @@ html{
   border: 0.1rem solid var(--border-color);
   border-radius: var(--border-radius);
   cursor: pointer;
-  box-shadow: var(--shadow);
   transition: var(--transition);
   overflow: hidden; /* Para evitar overflow en hover */
 }
@@ -605,6 +598,8 @@ html{
   margin-bottom: -30px; /* Separación del precio a los iconos */
   text-align: left; /* Ajustado para mejor alineación */
 }
+/****** HASTA AQUI PRODUCTOS **********/
+
 
 /* Preview modal */
 .products-preview {
