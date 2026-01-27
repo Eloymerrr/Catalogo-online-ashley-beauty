@@ -597,12 +597,12 @@ html{
 
 /* Precio */
 .precio {
-  color: var(--text-gray);
+  color: #85bb65;
   font-family: var(--font-family);
   font-size: 18px;
   font-weight: 600;
   margin-top: 1rem;
-  margin-bottom: 1.5rem; /* Separación del precio a los iconos */
+  margin-bottom: -30px; /* Separación del precio a los iconos */
   text-align: left; /* Ajustado para mejor alineación */
 }
 
