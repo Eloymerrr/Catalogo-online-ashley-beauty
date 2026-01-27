@@ -140,6 +140,10 @@ a::after {
   text-transform: uppercase;
 }
 
+.product {
+  transition: transform 0.4s ease-in-out;
+}
+
 .slider{
   width:100%;
   overflow: hidden;

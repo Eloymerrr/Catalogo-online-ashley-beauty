@@ -1,40 +1,54 @@
-// Seleccionamos todos los contenedores de slider que existan en la página
 const sliders = document.querySelectorAll(".slider");
 
 sliders.forEach((slider) => {
     let counter = 0;
-    // Buscamos los productos y botones ESPECÍFICOS de este slider
     const products = slider.querySelectorAll(".product");
     const btnLeft = slider.querySelector(".left");
     const btnRight = slider.querySelector(".right");
 
-    // Función para mover solo los productos de este slider
+    function getVisibleItems() {
+        // Calculamos cuántos productos caben en el contenedor actual
+        const containerWidth = slider.querySelector(".container-products")?.offsetWidth || slider.offsetWidth;
+        const itemWidth = products[0].offsetWidth + 15; // 15 es el gap/margin aproximado
+        return Math.floor(containerWidth / itemWidth);
+    }
+
     function scroll() {
+        // Usamos el ancho real del primer producto para el movimiento
+        const itemWidth = products[0].clientWidth + 20; // Ajusta el 20 al margen real (gap)
         products.forEach((item) => {
-            // Ajustamos el valor 305 según el ancho de tu producto + margin
-            item.style.transform = `translateX(-${counter * 305}px)`;
+            item.style.transform = `translateX(-${counter * itemWidth}px)`;
         });
     }
 
-    // Evento Derecha
     btnRight.addEventListener("click", () => {
-        // Lógica: No avanzar más allá del límite de productos
-        // Ajusta el "3" dependiendo de cuántos productos quieres ver a la vez
-        if (counter < products.length - 3) { 
+        const visibleItems = getVisibleItems();
+        // El límite ahora es el total menos los que ya se ven en pantalla
+        const maxScroll = products.length - visibleItems;
+
+        if (counter < maxScroll) {
             counter++;
         } else {
-            counter = 0; // Reinicia al principio (opcional)
+            counter = 0; // Reinicia al inicio
         }
         scroll();
     });
 
-    // Evento Izquierda
     btnLeft.addEventListener("click", () => {
+        const visibleItems = getVisibleItems();
+        const maxScroll = products.length - visibleItems;
+
         if (counter > 0) {
             counter--;
         } else {
-            counter = products.length - 3; // Va al final (opcional)
+            counter = maxScroll; // Salta al final correctamente
         }
+        scroll();
+    });
+
+    // Resetear posición si cambian el tamaño de la pantalla (de horizontal a vertical)
+    window.addEventListener("resize", () => {
+        counter = 0;
         scroll();
     });
 });
