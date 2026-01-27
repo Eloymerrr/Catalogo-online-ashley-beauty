@@ -21,7 +21,6 @@ body {
 }
 
 /*MINI-MENU (BREADCRUMB)  */
-
 .mini-menu{
   margin-left: 100px;
   margin-top: -50px;
@@ -38,12 +37,12 @@ body {
 .mini-menu .breadcrumb  a:hover{
   color: #C39EEE;
 }
-
-
 /* END MINI-MENU (BREADCRUMB)  */
 
-/* NAVBAR */
 
+
+
+/* NAVBAR */
 .navbar-expand-md{
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
 
@@ -88,9 +87,9 @@ a::after {
   color: #705490;
 --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
-
 /*FIN DEL  NAVBAR */
+
+
 
 
 /*CARRUSEL*/
@@ -146,7 +145,6 @@ a::after {
 
 
 /* LOS MAS PEDIDOS */
-
 #Los-mas-Pedidos{
   display: grid;
   place-items: center;
@@ -163,7 +161,6 @@ a::after {
 
 
 /* Los mejores productos para ti  */
-
 .title-for-you{
   font-size: 50px;
   font-weight: 500;
@@ -239,11 +236,6 @@ a::after {
 .bg--4{
   background-color:green;
 }
-
-
-
-
-
 /* Los mejores productos para ti */
 
 
@@ -286,9 +278,6 @@ a::after {
 .btnn:hover{
   transform: scale(1.1);
 }
-
-
-
 /*END SOBRE NOSOTROS */
 
 

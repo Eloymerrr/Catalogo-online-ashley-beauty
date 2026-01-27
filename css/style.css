@@ -23,7 +23,6 @@ body {
 }
 
 /* NAVBAR */
-
 .label{
   display: flex;
   width: 100%;
@@ -74,9 +73,9 @@ a::after {
   color: #705490;
 --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-
-
 /*FIN DEL  NAVBAR */
+
+
 
 
 /*CARRUSEL*/
@@ -127,12 +126,6 @@ a::after {
 /*END CARRUSEL */
 
 
-/*  */
-
-
-
-/*  */
-
 
 /* LOS MAS PEDIDOS */
 
@@ -146,33 +139,6 @@ a::after {
   margin-top: -80px;
   text-transform: uppercase;
 }
-
-
-
-
-
-/* .left{
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  z-index: 1000;
-
-
-}
-
-.right{
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  z-index: 1000;
-
-
-} */
-
-
-
 
 .slider{
   width:100%;
@@ -262,8 +228,6 @@ a::after {
 
 }
 
-
-
 .slider .product .informationn .price{
   font-size: 20px;
   color: rgb(5, 89, 5);
@@ -286,10 +250,6 @@ a::after {
 }
 
 
-
-
-
-
 .stars{
   
   font-size: 13px;
@@ -305,53 +265,13 @@ a::after {
   font-size: 20px;
   font-weight: bold;
 }
-
-
-
-
 /* HASTA AQUI LOS MAS PEDIDOS*/
 
 
 
-/* LOS MAS PEDIDOS */
-
-#Los-mas-Pedidos{
-  display: grid;
-  place-items: center;
-  font-size: 50px;
-  font-weight: 900;
-  color: #C39EEE;
-  text-align: center;
-  margin-top: -80px;
-}
 
 
-
-
-
-/* .left{
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  z-index: 1000;
-
-
-}
-
-.right{
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  z-index: 1000;
-
-
-} */
-
-
-
-
+/* Recien llegado */
 .a{
   width:100%;
   overflow: hidden;
@@ -482,7 +402,7 @@ a::after {
   font-size: 20px;
   font-weight: bold;
 }
-
+/*HASTA AQUI RECIEN LLEGADO */
 
 
 /* slider automatico de marcas */
