@@ -940,6 +940,15 @@ body.no-scroll {
   border-radius: 50%;
 }
 
+.preview {
+  overflow: hidden; /* Muy importante para el efecto lupa */
+}
+
+.preview img {
+  transition: transform 0.1s ease-out; /* Suaviza el zoom al usar la rueda */
+  will-change: transform; /* Mejora el rendimiento del navegador */
+}
+
 /* HASTA AQUI EL MODAL*/
 
 
