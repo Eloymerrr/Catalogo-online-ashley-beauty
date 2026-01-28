@@ -1,53 +1,70 @@
-// Seleccionar elementos principales
 const previewContainer = document.querySelector('.products-preview');
 const previewBox = previewContainer.querySelectorAll('.preview');
 
-// Seleccionamos todos los botones que contienen el icono del ojo
+// --- ABRIR MODAL ---
 document.querySelectorAll('.products-container .product button').forEach(button => {
-    // Verificamos si el botón contiene el span con clase 'eye'
     const eyeSpan = button.querySelector('.eye');
     if (eyeSpan) {
         button.onclick = (e) => {
-            // Evitamos que el clic se propague a otros elementos (por si acaso)
             e.stopPropagation();
-
-            // 1. Activar el contenedor principal
+            const name = eyeSpan.getAttribute('data-name');
             previewContainer.classList.add('active');
             document.body.classList.add('no-scroll');
 
-            // 2. Obtener el nombre del producto desde el data-name del span dentro del botón
-            let name = eyeSpan.getAttribute('data-name');
-
-            // 3. Mostrar el modal específico que coincida con el data-target
             previewBox.forEach(preview => {
-                let target = preview.getAttribute('data-target');
-                if (name === target) {
+                if (preview.getAttribute('data-target') === name) {
                     preview.classList.add('active');
                 } else {
-                    preview.classList.remove('active'); // Limpiar otros por seguridad
+                    preview.classList.remove('active');
                 }
             });
         };
     }
 });
 
-// Lógica para cerrar el modal
-previewBox.forEach(close => {
-    const closeBtn = close.querySelector('.fa-times');
+// --- LÓGICA DE ZOOM PARA IMAGEN (PC Y MÓVIL) ---
+previewBox.forEach(preview => {
+    const img = preview.querySelector('img');
+    const closeBtn = preview.querySelector('.fa-times');
+
+    if (img) {
+        // Función unificada para manejar la posición
+        const handleZoom = (e) => {
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+            const { left, top, width, height } = img.getBoundingClientRect();
+            const x = ((clientX - left) / width) * 100;
+            const y = ((clientY - top) / height) * 100;
+
+            img.style.transformOrigin = `${x}% ${y}%`;
+            img.style.transform = "scale(2.5)";
+        };
+
+        const resetZoom = () => {
+            img.style.transform = "scale(1)";
+            img.style.transformOrigin = "center center";
+        };
+
+        // Eventos Mouse (PC)
+        img.addEventListener('mousemove', handleZoom);
+        img.addEventListener('mouseleave', resetZoom);
+
+        // Eventos Touch (Móvil)
+        img.addEventListener('touchmove', (e) => {
+            if (e.cancelable) e.preventDefault(); // Evita scroll mientras haces zoom
+            handleZoom(e);
+        }, { passive: false });
+
+        img.addEventListener('touchend', resetZoom);
+    }
+
+    // --- CERRAR MODAL ---
     if (closeBtn) {
         closeBtn.onclick = () => {
-            close.classList.remove('active');
+            preview.classList.remove('active');
             previewContainer.classList.remove('active');
             document.body.classList.remove('no-scroll');
         };
     }
 });
-
-// Cerrar al hacer clic fuera del contenido (en el overlay)
-previewContainer.onclick = (e) => {
-    if (e.target === previewContainer) {
-        previewContainer.classList.remove('active');
-        previewBox.forEach(preview => preview.classList.remove('active'));
-        document.body.classList.remove('no-scroll');
-    }
-};
