@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4acca56e-5780-4cce-a3e8-244a19f5f065/deploy-status)](https://app.netlify.com/projects/ashleybeauty/deploys)
