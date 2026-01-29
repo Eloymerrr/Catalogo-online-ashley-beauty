@@ -960,6 +960,42 @@ body.no-scroll {
   will-change: transform; /* Mejora el rendimiento del navegador */
 }
 
+
+/* Estilos nuevos para la galería */
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.2);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: var(--primary-color, #000);
+}
+
+.slider-btn.prev { left: 5px; }
+.slider-btn.next { right: 5px; }
+
+/* Asegurar que las flechas no se vean si solo hay una imagen */
+.slider-btn.hidden { display: none; }
 /* HASTA AQUI EL MODAL*/
 
 
