@@ -1,4 +1,4 @@
-// LISTAS DE DESEOS //
+// // LISTAS DE DESEOS // //
 
 // Selección de elementos del DOM
 const btnsFavorite = document.querySelectorAll('.favorite');
@@ -35,7 +35,7 @@ const toggleFavorite = (product) => {
         favorites.push(product);
     }
     updateFavoritesInLocalStorage();
-    showHTML(); // Asegurar que se actualice el HTML inmediatamente después de cambiar el estado
+    showHTML(); 
 };
 
 // Función para remover un producto específico de favoritos
@@ -47,23 +47,34 @@ const removeFavorite = (productId) => {
 
 // Función para actualizar el menú de favoritos en el HTML
 const updateFavoriteMenu = () => {
-    listFavorites.innerHTML = favorites.map(fav => `
-        <div class="card-favorite">
-            <img src="${fav.image}" alt="${fav.title}" class="favorite-image">
-            <p class="title">${fav.title}</p>
-            <p>${fav.price}</p>
-            <button class="remove-favorite btn btn-danger" data-id="${fav.id}"><i class="remove-favorite fa-solid fa-trash-can"></i></button>
-        </div>
-    `).join('');
+    // Verificamos si la lista está vacía para mostrar el mensaje
+    if (favorites.length === 0) {
+        listFavorites.innerHTML = `
+            <div class="alert alert-info m-3 text-center" role="alert">
+                <i class="fa-solid fa-heart-crack d-block mb-2 fs-2"></i>
+                <strong>¿Aún nada?</strong> <br> Tus deseos aparecerán aquí.
+            </div>`;
+    } else {
+        // Si hay productos, renderizamos la lista
+        listFavorites.innerHTML = favorites.map(fav => `
+            <div class="card-favorite">
+                <img src="${fav.image}" alt="${fav.title}" class="favorite-image">
+                <p class="title">${fav.title}</p>
+                <p>${fav.price}</p>
+                <button class="remove-favorite btn btn-danger" data-id="${fav.id}">
+                    <i class="remove-favorite fa-solid fa-trash-can"></i>
+                </button>
+            </div>
+        `).join('');
 
-    // Añadir evento a los botones de eliminar
-    document.querySelectorAll('.remove-favorite').forEach(button => {
-        button.addEventListener('click', (e) => {
-            // Cambiar para obtener el data-id del botón, incluso si se hace clic en el icono
-            const productId = e.target.closest('button').dataset.id;
-            removeFavorite(productId);
+        // Añadir evento a los botones de eliminar
+        document.querySelectorAll('.remove-favorite').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productId = e.target.closest('button').dataset.id;
+                removeFavorite(productId);
+            });
         });
-    });
+    }
 };
 
 // Función para mostrar el estado de los favoritos en el HTML (botones, contador, etc.)
@@ -96,10 +107,9 @@ btnsFavorite.forEach(button => {
             id: card.dataset.productId,
             title: card.querySelector('h3').textContent,
             price: card.querySelector('.precio').textContent,
-            image: card.closest('.producto-index').querySelector('img').src // Obtener la URL de la imagen
+            image: card.closest('.producto-index').querySelector('img').src 
         };
         toggleFavorite(product);
-        // showHTML(); // Ya se llama dentro de toggleFavorite, así que se puede remover aquí para evitar duplicados
     });
 });
 
@@ -119,4 +129,3 @@ btnClose.addEventListener('click', () => {
 
 // Inicialización
 loadFavoritesFromLocalStorage();
-// updateFavoriteMenu(); // Ya se llama dentro de showHTML si hay datos cargados, o se puede dejar para inicializar vacío si no hay nada    16/01/2026

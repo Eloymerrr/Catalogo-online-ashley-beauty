@@ -346,6 +346,7 @@ html{
 
 
 /*LISTA DE DESEOS  */
+
 .d-flex #button-header-favorite {
 	border: none;
 	background: none;
@@ -367,7 +368,7 @@ html{
 .counter-favorite{
 	font-size: 10px;
 	position: absolute;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: red;
 	color: white;
 	font-weight: 700;
 	width: 20px;

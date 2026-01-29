@@ -131,7 +131,11 @@ function search() {
         }
         
         // Mostrar el mensaje usando Bootstrap con animación suave
-        resultMessage.innerHTML = `<div class="alert alert-info alert-dismissible fade show" role="alert">${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+        resultMessage.innerHTML = `<div class="alert alert-info alert-dismissible fade show" role="alert">
+         <i class="fa-solid fa-circle-info me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
         
         // Agregar evento al botón de cerrar para limpiar la búsqueda
         const closeButton = resultMessage.querySelector('.btn-close');
