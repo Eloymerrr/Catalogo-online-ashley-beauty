@@ -474,7 +474,7 @@ html{
 
 
 /****** PRODUCTOS **********/
-/* Variables CSS para consistencia y facilidad de mantenimiento */
+/* Variables CSS */
 :root {
   --primary-color: #bc90ee;
   --text-color: #444;
@@ -504,13 +504,17 @@ html{
 /* Contenedor de productos */
 .container .products-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  /* auto-fill evita que una sola tarjeta se estire a todo lo ancho */
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: var(--gap);
   position: relative;
   top: 60px;
+  /* Evita que las filas tengan alturas extrañas */
+  grid-auto-rows: max-content;
+  align-items: start;
 }
 
-/* Divisor de tarjetas (opcional, si se usa para separación) */
+/* Divisor de tarjetas */
 .card-divider {
   width: 100%;
   border: 1px solid var(--border-color);
@@ -525,12 +529,17 @@ html{
   text-align: center;
   padding: var(--padding);
   width: 100%;
+  /* Limitamos el ancho máximo para que no crezca en pantallas grandes */
+  max-width: 18rem; 
+  margin: 0 auto;
   background: var(--bg-color);
   border: 0.1rem solid var(--border-color);
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: var(--transition);
-  overflow: hidden; /* Para evitar overflow en hover */
+  overflow: hidden;
+  /* Asegura que la tarjeta se comporte como bloque dentro del grid */
+  display: block; 
 }
 
 .container .products-container .product:hover {
@@ -542,14 +551,16 @@ html{
 /* Imagen del producto */
 .container .products-container .product img {
   height: 10rem;
-  width: 13rem;
-  object-fit: contain; /* Para mostrar imagen completa sin cortes */
+  width: 100%; /* Ocupa el ancho de la tarjeta */
+  max-width: 13rem; /* Pero no más de su tamaño original */
+  object-fit: contain;
   transition: var(--transition);
   border-radius: var(--border-radius);
+  margin: 0 auto;
 }
 
 .container .products-container .product:hover img {
-  transform: scale(1.1); /* Escala reducida para evitar cortes */
+  transform: scale(1.1);
 }
 
 /* Título del producto */
@@ -565,7 +576,7 @@ html{
   color: var(--primary-color);
 }
 
-/* Íconos (botones circulares, e.g., estrellas o acciones) */
+/* Íconos (botones circulares) */
 #icons {
   font-size: 15px;
   color: var(--text-gray);
@@ -595,8 +606,8 @@ html{
   font-size: 18px;
   font-weight: 600;
   margin-top: 1rem;
-  margin-bottom: -30px; /* Separación del precio a los iconos */
-  text-align: left; /* Ajustado para mejor alineación */
+  margin-bottom: 0.5rem; /* Ajustado para que no choque con los iconos */
+  text-align: center; /* Centrado para que se vea mejor en tarjetas individuales */
 }
 /****** HASTA AQUI PRODUCTOS **********/
 
