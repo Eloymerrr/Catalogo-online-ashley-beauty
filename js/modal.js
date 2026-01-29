@@ -2,7 +2,6 @@ const previewContainer = document.querySelector('.products-preview');
 const previewBox = previewContainer.querySelectorAll('.preview');
 
 previewBox.forEach(preview => {
-    // Buscamos la imagen: ya sea por clase .main-img o la primera img que encuentre
     const img = preview.querySelector('.main-img') || preview.querySelector('img:not([src*="whatsapp"])');
     const closeBtn = preview.querySelector('.fa-times');
     const btnNext = preview.querySelector('.next');
@@ -23,9 +22,7 @@ previewBox.forEach(preview => {
         }
 
         const updateImage = (index) => {
-            currentIndex = index;
-            if (currentIndex < 0) currentIndex = images.length - 1;
-            if (currentIndex >= images.length) currentIndex = 0;
+            currentIndex = (index + images.length) % images.length; // Ciclo infinito simplificado
             img.src = images[currentIndex];
             scale = 1; 
             img.style.transform = "scale(1)";
@@ -33,6 +30,27 @@ previewBox.forEach(preview => {
 
         if(btnNext) btnNext.onclick = (e) => { e.stopPropagation(); updateImage(currentIndex + 1); };
         if(btnPrev) btnPrev.onclick = (e) => { e.stopPropagation(); updateImage(currentIndex - 1); };
+
+        // --- SOPORTE SWIPE (DESLIZAR) ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        preview.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        preview.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        const handleSwipe = () => {
+            const swipeDistance = touchEndX - touchStartX;
+            if (scale === 1) { // Solo cambiar imagen si no hay zoom activo
+                if (swipeDistance < -50) updateImage(currentIndex + 1); // Deslizar a la izquierda
+                if (swipeDistance > 50) updateImage(currentIndex - 1);  // Deslizar a la derecha
+            }
+        };
     }
 
     // --- LÓGICA DE ZOOM ---
@@ -48,9 +66,9 @@ previewBox.forEach(preview => {
     };
 
     if (img) {
-        // Aseguramos que la imagen tenga transición suave y la clase necesaria si no la tiene
         img.style.transition = "transform 0.1s ease-out";
 
+        // Zoom con Rueda (Desktop)
         preview.addEventListener('wheel', (e) => {
             if (preview.classList.contains('active')) {
                 e.preventDefault();
@@ -69,17 +87,10 @@ previewBox.forEach(preview => {
             img.style.transform = "scale(1)";
         });
 
-        // Soporte Táctil
-        img.addEventListener('touchmove', (e) => {
-            if (scale > 1) e.preventDefault(); 
-            scale = 2; 
-            updateTransform(e);
+        // Zoom Táctil (Doble Tap o toque largo)
+        img.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) e.preventDefault(); // Prevenir zoom nativo del navegador
         }, { passive: false });
-
-        img.addEventListener('touchend', () => {
-            scale = 1;
-            img.style.transform = "scale(1)";
-        });
     }
 
     if (closeBtn) {
@@ -93,17 +104,16 @@ previewBox.forEach(preview => {
     }
 });
 
-// Apertura de modal
+// Apertura de modal (Sin cambios, corregido el toggle)
 document.querySelectorAll('.products-container .product button').forEach(button => {
-    const eyeSpan = button.querySelector('.eye');
-    if (eyeSpan) {
-        button.onclick = () => {
-            const name = eyeSpan.getAttribute('data-name');
-            previewContainer.classList.add('active');
-            document.body.classList.add('no-scroll');
-            previewBox.forEach(preview => {
-                preview.classList.toggle('active', preview.getAttribute('data-target') === name);
-            });
-        };
-    }
+    button.onclick = () => {
+        const eyeSpan = button.querySelector('.eye');
+        if (!eyeSpan) return;
+        const name = eyeSpan.getAttribute('data-name');
+        previewContainer.classList.add('active');
+        document.body.classList.add('no-scroll');
+        previewBox.forEach(preview => {
+            preview.classList.toggle('active', preview.getAttribute('data-target') === name);
+        });
+    };
 });
