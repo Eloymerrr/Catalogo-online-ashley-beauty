@@ -39,6 +39,7 @@ const toggleFavorite = (product) => {
 };
 
 // Función para remover un producto específico de favoritos
+
 const removeFavorite = (productId) => {
     favorites = favorites.filter(fav => fav.id !== productId);
     updateFavoritesInLocalStorage();
