@@ -1,187 +1,160 @@
-// Función para mezclar un array usando el algoritmo de Fisher-Yates
+/**
+ * CONFIGURACIÓN Y DICCIONARIOS
+ */
+ const CATEGORY_NAMES = {
+    'skincare': 'Skincare',
+    'makeup': 'Makeup',
+    'perfumes': 'Perfumes',
+    'Bolsos & Carteras': 'Bolsos & Carteras'
+};
+
+/**
+ * 1. ALGORITMO DE MEZCLA (FISHER-YATES)
+ */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-  }
-  
-  // Función para ordenar aleatoriamente los productos
-  function shuffleProducts() {
-    const container = document.querySelector('.products-container');
-    if (!container) return; // Si no encuentra el contenedor, salir
-  
-    // Obtener todos los elementos de producto (los divs con clase 'product-item')
-    const products = Array.from(container.querySelectorAll('.product-item'));
-  
-    // Mezclar el array de productos
-    const shuffledProducts = shuffleArray(products);
-  
-    // Vaciar el contenedor
-    container.innerHTML = '';
-  
-    // Reinsertar los productos en el orden mezclado
-    shuffledProducts.forEach(product => {
-      container.appendChild(product);
-    });
-  }
-  
-  // Ejecutar la función cuando el DOM esté completamente cargado
-  document.addEventListener('DOMContentLoaded', shuffleProducts);
+}
 
-// Función de búsqueda actualizada y mejorada
-function search() {
-    // Obtener el valor del filtro, limpiar espacios y convertirlo a mayúsculas
-    const filter = document.getElementById('find').value.trim().toUpperCase();
-    
-    // Obtener la categoría activa
-    const activeCategory = document.querySelector('.category_item.ct_item-active').getAttribute('category');
-    
-    // CORRECCIÓN: Seleccionar 'product-item' para que coincida con el resto del código
-    const items = document.querySelectorAll('.product-item');
-    
-    // Obtener el contenedor padre de los productos
+function shuffleProducts() {
     const container = document.querySelector('.products-container');
+    if (!container) return;
+    const products = Array.from(container.querySelectorAll('.product-item'));
+    const shuffledProducts = shuffleArray(products);
     
-    // Aplicar filtros
-    items.forEach(item => {
-        const cat = item.getAttribute('category');
-        const h3 = item.querySelector('h3');
-        const value = h3 ? h3.textContent.toUpperCase().trim() : '';
-        
-        // Verificar si el producto pertenece a la categoría activa
-        const inCategory = activeCategory === 'all' || cat === activeCategory;
-        
-        // Si hay filtro, verificar coincidencia; si no, mostrar si está en categoría
-        let shouldShow = false;
-        if (filter !== '') {
-            // Se usa includes para una búsqueda más directa y compatible con copiado/pegado
-            shouldShow = inCategory && value.includes(filter);
-        } else {
-            shouldShow = inCategory;
-        }
-        
-        // Establecer display
-        item.style.display = shouldShow ? 'block' : 'none';
-        if (shouldShow) item.style.transform = 'scale(1)';
-    });
+    container.innerHTML = '';
+    shuffledProducts.forEach(product => container.appendChild(product));
+}
+
+/**
+ * 2. FUNCIÓN DE BÚSQUEDA Y FILTRADO INTEGRADO
+ */
+function search() {
+    const findInput = document.getElementById('find');
+    const filter = findInput ? findInput.value.trim().toUpperCase() : '';
     
-    // Si hay filtro, reordenar: visibles primero, luego ocultos
-    if (filter !== '') {
-        const visibleItems = Array.from(items).filter(item => item.style.display === 'block');
-        const hiddenItems = Array.from(items).filter(item => item.style.display === 'none');
-        const orderedItems = visibleItems.concat(hiddenItems);
-        
-        // Limpiar el contenedor y reordenar
-        container.innerHTML = '';
-        orderedItems.forEach(item => container.appendChild(item));
-    }
+    const activeBtn = document.querySelector('.category_item.ct_item-active');
+    const activeCategory = activeBtn ? activeBtn.getAttribute('category') : 'all';
     
-    // Contar los productos visibles después del filtro
-    const visibleItems = Array.from(items).filter(item => item.style.display === 'block');
-    const visibleCount = visibleItems.length;
-    
-    // Obtener el elemento del mensaje
+    const items = document.querySelectorAll('.product-item');
     const resultMessage = document.getElementById('result-message');
     
-    // Mostrar el mensaje solo si hay un filtro escrito (no vacío)
-    if (filter !== '') {
-        let message = '';
-        if (visibleCount > 0) {
-            message = `Se encontraron ${visibleCount} producto${visibleCount === 1 ? '' : 's'} "${filter.toLowerCase()}".`;
+    let visibleCount = 0;
+    let suggestions = new Set();
+
+    items.forEach(item => {
+        const itemCat = item.getAttribute('category');
+        const title = item.querySelector('h3')?.textContent.toUpperCase() || '';
+        
+        const matchesSearch = filter === '' || title.includes(filter);
+        const matchesCategory = activeCategory === 'all' || itemCat === activeCategory;
+
+        // Lógica de visualización con animación
+        if (matchesSearch && matchesCategory) {
+            item.style.display = 'block';
+            // Pequeño timeout para que el navegador procese el display antes de la escala
+            setTimeout(() => {
+                item.style.transform = 'scale(1)';
+                item.style.opacity = '1';
+            }, 10);
+            visibleCount++;
         } else {
-            if (activeCategory !== 'all') {
-                const categoryNames = {
-                    'skincare': 'Skincare',
-                    'makeup': 'Makeup',
-                    'perfumery': 'Aura y Aroma (Perfumería)',
-                    'bags': 'Bolsos & Carteras'
-                };
-                
-                const matchingCategories = [];
-                items.forEach(item => {
-                    const cat = item.getAttribute('category');
-                    const h3 = item.querySelector('h3');
-                    const value = h3 ? h3.textContent.toUpperCase() : '';
-                    if (cat !== activeCategory && value.includes(filter)) {
-                        if (!matchingCategories.includes(cat)) {
-                            matchingCategories.push(cat);
-                        }
-                    }
-                });
-                
-                if (matchingCategories.length > 0) {
-                    const suggestions = matchingCategories.map(cat => categoryNames[cat] || cat).join(', ');
-                    message = `Este producto que buscas no es de esta categoría. Prueba en : ${suggestions}.`;
-                } else {
-                    message = `No se encontraron productos con "${filter.toLowerCase()}".`;
-                }
-            } else {
-                message = `No se encontraron productos con "${filter.toLowerCase()}".`;
+            item.style.transform = 'scale(0)';
+            item.style.opacity = '0';
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 400); // Duración de la animación CSS
+            
+            // Si el nombre coincide pero está oculto por categoría, lo sugerimos
+            if (matchesSearch && !matchesCategory) {
+                suggestions.add(CATEGORY_NAMES[itemCat] || itemCat);
             }
         }
-        
-        resultMessage.innerHTML = `<div class="alert alert-info alert-dismissible fade show" role="alert">
-         <i class="fa-solid fa-circle-info me-2"></i>
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>`;
-        
-        const closeButton = resultMessage.querySelector('.btn-close');
-        if (closeButton) {
-            closeButton.addEventListener('click', function() {
-                document.getElementById('find').value = '';
-                search();
-            });
+    });
+
+    // 3. MANEJO DINÁMICO DE MENSAJES (COLORES POR SITUACIÓN)
+    if (filter !== '') {
+        let message = '';
+        let alertClass = ''; 
+
+        if (visibleCount > 0) {
+            // ÉXITO: Productos encontrados (Verde)
+            alertClass = 'alert-success'; 
+            message = `<i class="fa-solid fa-check-circle me-2"></i> Se encontraron ${visibleCount} producto(s) para "${filter.toLowerCase()}".`;
+        } else if (suggestions.size > 0) {
+            // ADVERTENCIA: Existe en otra categoría (Amarillo/Naranja)
+            alertClass = 'alert-warning';
+            const catList = Array.from(suggestions).join(', ');
+            message = `<i class="fa-solid fa-triangle-exclamation me-2"></i> No está en esta categoría. Intenta en: <b>${catList}</b>.`;
+        } else {
+            // ERROR: No existe nada (Rojo)
+            alertClass = 'alert-danger';
+            message = `<i class="fa-solid fa-circle-xmark me-2"></i> No se encontró nada relacionado con "${filter.toLowerCase()}".`;
         }
+
+        resultMessage.innerHTML = `
+            <div class="alert ${alertClass} alert-dismissible fade show" role="alert" style="transition: all 0.3s ease; margin: 10px 0;">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`;
+        
+        // Listener para limpiar buscador si cierran la alerta
+        resultMessage.querySelector('.btn-close')?.addEventListener('click', () => {
+            if(findInput) findInput.value = '';
+            search();
+        });
     } else {
-        resultMessage.innerHTML = '';
+        resultMessage.innerHTML = ''; // Limpiar si no hay búsqueda
     }
 }
 
-// Código de filtrado por categoría
+/**
+ * 4. INICIALIZACIÓN Y EVENTOS (jQuery)
+ */
 $(document).ready(function() {
+    // 1. Aleatorizar productos al inicio
+    shuffleProducts();
+
+    // 2. Función para actualizar los números (contadores) en los botones
     function updateCategoryCounts() {
-        var counts = {};
-        $('.product-item').each(function() {
-            var cat = $(this).attr('category');
-            if (!counts[cat]) {
-                counts[cat] = 0;
-            }
-            counts[cat]++;
-        });
-        
-        counts['all'] = $('.product-item').length;
-        
+        const totalItems = $('.product-item').length;
         $('.category_item').each(function() {
-            var cat = $(this).attr('category');
-            var originalText = $(this).text().split(' (')[0];
-            $(this).text(originalText + ' (' + (counts[cat] || 0) + ')');
+            const cat = $(this).attr('category');
+            const count = (cat === 'all') 
+                ? totalItems 
+                : $(`.product-item[category="${cat}"]`).length;
+            
+            const baseText = $(this).text().split(' (')[0];
+            $(this).text(`${baseText} (${count})`);
         });
     }
-    
+
     updateCategoryCounts();
-    $('.category_list .category_item[category="all"]').addClass('ct_item-active');
 
-    $('.category_item').click(function() {
-        var catProduct = $(this).attr('category');
+    // 3. Evento Click en Categorías
+    $('.category_item').click(function(e) {
+        e.preventDefault();
+        
+        if ($(this).hasClass('ct_item-active')) return;
 
+        // UI: Cambiar clase activa
         $('.category_item').removeClass('ct_item-active');
         $(this).addClass('ct_item-active');
 
+        // Animación de salida global
         $('.product-item').css('transform', 'scale(0)');
-        setTimeout(function() {
-            $('.product-item').hide();
+        
+        // Esperar a que la animación de "encogimiento" termine para filtrar
+        setTimeout(() => {
+            search(); 
         }, 400);
+    });
 
-        setTimeout(function() {
-            if (catProduct === 'all') {
-                $('.product-item').show().css('transform', 'scale(1)');
-            } else {
-                $('.product-item[category="' + catProduct + '"]').show().css('transform', 'scale(1)');
-            }
-            search();
-        }, 400);
+    // 4. Evento en tiempo real para el buscador
+    $('#find').on('keyup', function() {
+        search();
     });
 });

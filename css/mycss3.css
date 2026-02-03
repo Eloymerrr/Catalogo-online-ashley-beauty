@@ -147,6 +147,9 @@ a::after {
 /*END CARRUSEL */
 
 
+.product-item {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
 
 
 /* slider automatico de marcas */
@@ -263,6 +266,8 @@ a::after {
   }
 
 }
+/* HASTA AQUI TIENDA */
+
 
 /* BOTON HACIA ARRIBA */
 
@@ -471,6 +476,9 @@ html{
   color: rgba(15, 116, 15, 0.887);
 }
 /*HASTA AQUI LISTA DE DESEOS*/
+
+
+
 
 
 /****** PRODUCTOS **********/
@@ -807,6 +815,8 @@ body.no-scroll {
   }
   
 .products-preview .preview {
+  position: relative;
+  top:0; left:40px;
     padding: 1.5rem; /* Un poco más de espacio interno */
     text-align: center;
     background: #fff;
@@ -914,9 +924,6 @@ body.no-scroll {
 
 
 /* HASTA AQUI EL MODAL*/
-
-
-
 .containeer{
   max-width: 1500px;
   margin: 0 auto;

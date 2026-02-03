@@ -1,4 +1,4 @@
-// // LISTAS DE DESEOS // //
+// LISTAS DE DESEOS
 
 // Selección de elementos del DOM
 const btnsFavorite = document.querySelectorAll('.favorite');
