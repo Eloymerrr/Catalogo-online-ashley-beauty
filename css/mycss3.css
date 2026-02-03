@@ -699,7 +699,7 @@ html {
 /* Imagen en preview */
 .products-preview .preview img {
   height: 12rem;
-  width: 14rem;
+  width: 16rem;
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }
