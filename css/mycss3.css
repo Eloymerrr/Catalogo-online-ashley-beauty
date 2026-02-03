@@ -512,6 +512,7 @@ html{
   /* Evita que las filas tengan alturas extrañas */
   grid-auto-rows: max-content;
   align-items: start;
+  
 }
 
 /* Divisor de tarjetas */
@@ -662,7 +663,6 @@ html{
 .products-preview .preview img {
   height: 12rem;
   width: 14rem;
-  object-fit: contain; /* Ajustado para consistencia */
   border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }
@@ -791,6 +791,7 @@ body.no-scroll {
   .container .products-container{
     position: relative;
     left: -25px;
+    
   }
  
 
@@ -805,15 +806,17 @@ body.no-scroll {
     justify-content: center;
   }
   
-  .products-preview .preview{
-    padding:1rem;
+.products-preview .preview {
+    padding: 1.5rem; /* Un poco más de espacio interno */
     text-align: center;
     background: #fff;
     position: relative;
-    margin:2rem;
-    width: 30rem;
+    margin: 1rem;    /* Reducimos el margen para ganar espacio */
+    width: 90%;      /* CAMBIO CLAVE: Que use el porcentaje del ancho de pantalla */
+    max-width: 320px; /* O el ancho que desees, pero nunca fijo en rem grandes */
     height: auto;
-  }
+    border-radius: var(--border-radius); /* Para mantener la estética */
+}
 
   .products-preview .preview h3{
    
@@ -875,80 +878,29 @@ body.no-scroll {
 
 
 
-/* MODAL */
-
-/* Contenedor principal (el fondo oscuro) */
-.products-preview {
-  position: fixed;
-  top: 0; left: 0;
-  min-height: 100vh;
-  width: 100%;
-  background: rgba(0,0,0,.8);
-  display: flex; /* Cambiamos de 'none' a 'flex' para que la transición funcione */
-  align-items: center;
-  justify-content: center;
-  
-  /* Estado inicial oculto */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.7s ease; /* Transición suave */
-  z-index: 1000;
+/* 4. Botón Cerrar (X) */
+.products-preview .preview .fa-times {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 25px;
+  color: #444;
+  cursor: pointer;
+  z-index: 10;
+  background: white;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-
-/* Cuando el contenedor está activo */
-.products-preview.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* La caja blanca del modal (el contenido) */
-.products-preview .preview {
-  display: none; /* Se mantiene para alternar entre productos */
-  background: #fff;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  margin: 2rem;
-  
-  /* Efecto de escala para que parezca que "crece" al abrirse */
-  transform: scale(0.8);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Cuando la caja específica está activa */
-.products-preview .preview.active {
-  display: inline-block;
-  transform: scale(1); /* Regresa a su tamaño original */
-}
-
-/* Contenedor que limita el zoom */
-.preview .image-container {
-  width: 100%;
-  height: 300px; /* Ajusta según prefieras */
-  overflow: hidden; /* Esto hace que el zoom se vea dentro de un cuadro */
-  position: relative;
-  background: #f0f0f0;
+.preview {
+  overflow: hidden; /* Muy importante para el efecto lupa */
 }
 
 .preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Mantiene la proporción de la imagen */
-  transition: transform 0.1s ease-out;
-  cursor: crosshair;
-  touch-action: none; /* Desactiva gestos del navegador para mejor control */
-}
-
-/* Botón cerrar siempre visible y grande para dedos */
-.preview .fa-times {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  z-index: 100;
-  font-size: 25px;
-  background: rgba(255,255,255,0.8);
-  padding: 5px 10px;
-  border-radius: 50%;
+  transition: transform 0.1s ease-out; /* Suaviza el zoom al usar la rueda */
+  will-change: transform; /* Mejora el rendimiento del navegador */
 }
 
 .preview {
@@ -961,41 +913,6 @@ body.no-scroll {
 }
 
 
-/* Estilos nuevos para la galería */
-.image-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.2);
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: 0.3s;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-btn:hover {
-  background: var(--primary-color, #000);
-}
-
-.slider-btn.prev { left: 5px; }
-.slider-btn.next { right: 5px; }
-
-/* Asegurar que las flechas no se vean si solo hay una imagen */
-.slider-btn.hidden { display: none; }
 /* HASTA AQUI EL MODAL*/
 
 
