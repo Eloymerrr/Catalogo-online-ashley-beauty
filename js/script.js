@@ -112,6 +112,41 @@ function search() {
 }
 
 /**
+ * 5. FUNCIONES PARA MANEJO DEL MODAL EN DESKTOP (ZOOM Y CURSOR)
+ */
+function setupModalZoom() {
+    // Detectar si es desktop (ancho > 768px, asumiendo que es PC/laptop)
+    const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+    
+    if (!isDesktop) return; // Solo aplicar en desktop
+    
+    const modal = document.querySelector('.products-preview');
+    const img = modal ? modal.querySelector('.preview img') : null;
+    
+    if (!modal || !img) return;
+    
+    // Observer para detectar cuando el modal se abre (añade clase 'active')
+    const observer = new MutationObserver(() => {
+        if (modal.classList.contains('active')) {
+            // Resetear el zoom al abrir el modal
+            img.style.transform = 'scale(1)';
+        }
+    });
+    observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+    
+    // Event listeners para cursor y zoom en la imagen
+    img.addEventListener('mouseenter', () => {
+        img.style.cursor = 'zoom-in'; // Cambiar cursor a zoom-in
+        img.style.transform = 'scale(1.2)'; // Aplicar zoom (ajusta el nivel si es necesario)
+    });
+    
+    img.addEventListener('mouseleave', () => {
+        img.style.cursor = 'default'; // Resetear cursor
+        img.style.transform = 'scale(1)'; // Deshacer zoom
+    });
+}
+
+/**
  * 4. INICIALIZACIÓN Y EVENTOS (jQuery)
  */
 $(document).ready(function() {
@@ -157,4 +192,7 @@ $(document).ready(function() {
     $('#find').on('keyup', function() {
         search();
     });
+
+    // 5. Configurar zoom y cursor en modal para desktop
+    setupModalZoom();
 });
