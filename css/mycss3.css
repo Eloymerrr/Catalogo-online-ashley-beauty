@@ -29,27 +29,116 @@ body {
 /* HASTA AQUI ESTILOS GENERALES */
 
 
+/* MEJORA DEL TITULO Y CONTENEDOR BUSCAR */
+.Buscar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinea el buscador con la base del texto */
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0 20px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(195, 158, 238, 0.3); /* Línea sutil decorativa */
+}
 
-/*MINI-MENU (BREADCRUMB)  */
+.titu-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.span-titu {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 800;
+    color: #333;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+
+/* RESET RESPONSIVO */
+.shop-wrapper {
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 1400px; /* Evita que en pantallas 4k se estire demasiado */
+    margin: 0 auto;
+}
+
+/* LAYOUT PRINCIPAL: Grid flexible */
+.row-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Móvil: Una sola columna */
+    gap: 2rem;
+}
+
+/* MINI-MENU (BREADCRUMB) MODERNO */
 .mini-menu {
-  display: grid;
-  place-items: right;
-  position: relative;
-  top: 10px;
-  left: 10px;
+    position: relative;
+    top: 0;
+}
+
+.mini-menu .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mini-menu .breadcrumb-item + .breadcrumb-item::before {
+    content: "/"; /* Un divisor más limpio */
+    color: #ccc;
+    padding: 0 10px;
 }
 
 .mini-menu .breadcrumb li a {
-  color: #999;
-  text-decoration: none;
+    color: #999;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.mini-menu .breadcrumb a:hover {
-  color: #C39EEE;
+.mini-menu .breadcrumb li a:hover {
+    color: #C39EEE;
 }
 
-/* END MINI-MENU (BREADCRUMB)  */
+.mini-menu .breadcrumb-item.active {
+    color: #C39EEE;
+    font-weight: 600;
+}
 
+/* AJUSTE DEL INPUT DE BÚSQUEDA */
+#find {
+    width: 250px;
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 8px; /* Un poco menos redondo para verse más moderno */
+    height: 40px;
+}
+
+#find:focus {
+    width: 320px;
+    border-color: #C39EEE;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .Buscar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .titu-flex {
+        width: 100%;
+    }
+
+    #find:focus {
+        width: 100%;
+    }
+}
 
 
 /* NAVBAR */
@@ -201,77 +290,88 @@ a::after {
 /* end slider automatico de marcas */
 
 
-
-/* TIENDA */
-#menu-shop {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 20px;
-  text-align: center;
+/* Contenedor principal */
+.Buscar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: var(--bg-card, #fff); /* Opcional: fondo suave */
+    border-radius: 15px;
 }
 
 .span-titu {
-  font-size: 40px;
-  font-weight: 600;
+    font-size: clamp(28px, 5vw, 40px); /* Tamaño fluido según pantalla */
+    font-weight: 700;
+    color: var(--text-color, #333);
+    letter-spacing: -1px;
 }
 
-.Buscar input {
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 50px;
-  padding: 0 20px;
-  font-size: 18px;
-  color: #000;
-  outline: none;
-  border: 1.5px solid silver;
-  border-radius: 30px;
+/* Contenedor del Input para el Icono */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 #find {
-  float: right;
-  position: relative;
-  top: 5px;
-
+    width: 300px;
+    height: 45px;
+    padding: 0 20px 0 45px; /* Espacio extra a la izquierda para el icono */
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    border: 2px solid #eee;
+    border-radius: 50px; /* Bordes más redondeados */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #f9f9f9;
 }
 
-.find {
-  position: absolute;
-  top: 0px;
-  right: 0;
-  width: 55px;
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-  color: #000;
-  border-radius: 50%;
-  cursor: pointer;
+/* Icono de Lupa mediante SVG */
+.search-icon {
+    position: absolute;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    background-color: #999;
+    /* Máscara para poder cambiar el color del icono fácilmente */
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") no-repeat center;
+    transition: all 0.3s ease;
 }
 
-
-#menu-shop li a {
-  display: block;
-  padding: 5px;
-  margin-bottom: 7px;
-  color: #C39EEE;
-  font-weight: bold;
+/* Efectos de Enfoque */
+#find:focus {
+    border-color: #C39EEE;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(195, 158, 238, 0.2);
+    width: 380px;
 }
 
-#menu-shop li a:hover {
-  color: #705490;
-  transform: scale(1.1);
-  text-decoration: underline;
+#find:focus + .search-icon {
+    background-color: #C39EEE; /* El icono cambia de color al enfocar */
+    transform: scale(1.1);
 }
 
-@media only screen and (min-width: 768px) {
-  #menu-shop {
-    margin-left: 20px;
-    text-align: left;
-  }
+/* Responsive */
+@media (max-width: 768px) {
+    .Buscar {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
 
+    .input-wrapper, #find {
+        width: 100%;
+    }
+
+    #find:focus {
+        width: 100%; /* No se ensancha en móviles para no romper el layout */
+    }
 }
-
 /* HASTA AQUI TIENDA */
 
 
@@ -526,14 +626,15 @@ html {
 }
 
 /* Contenedor de productos */
-.container .products-container {
+ .container .products-container{
   display: grid;
   /* auto-fill evita que una sola tarjeta se estire a todo lo ancho */
+ display: grid;
+  /* Configuración base (móviles) */
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: var(--gap);
   position: relative;
   top: 60px;
-  /* Evita que las filas tengan alturas extrañas */
   grid-auto-rows: max-content;
   align-items: start;
 
@@ -553,18 +654,14 @@ html {
 .container .products-container .product {
   text-align: center;
   padding: var(--padding);
-  width: 100%;
-  /* Limitamos el ancho máximo para que no crezca en pantallas grandes */
-  max-width: 18rem;
-  margin: 0 auto;
   background: var(--bg-color);
   border: 0.1rem solid var(--border-color);
   border-radius: var(--border-radius);
-  cursor: pointer;
   transition: var(--transition);
-  overflow: hidden;
-  /* Asegura que la tarjeta se comporte como bloque dentro del grid */
-  display: block;
+  display: flex; /* Cambiado a flex para mejor control interno */
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Que todas midan lo mismo en la misma fila */
 }
 
 .container .products-container .product:hover {
@@ -812,7 +909,10 @@ body.no-scroll {
 }
 
 
-@media (max-width:768px) {
+
+
+
+@media only screen and (min-width: 992px) {
 
 
 
@@ -904,21 +1004,22 @@ body.no-scroll {
   }
 
 
+  
+
   .products-preview .preview .buttons a.buy {
     border: 1px solid #111;
   }
 
   .container .products-container {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    /* Esto divide el espacio en 3 fracciones exactas e iguales */
+    grid-template-columns: repeat(3, 1fr); 
+    max-width: 1200px; /* Opcional: para que no se estiren infinito hacia los lados */
+    margin: 0 auto;
   }
 
   .container .products-container .product {
 
-    width: 90%;
-    display: grid;
-    place-items: center;
-    position: relative;
-    left: 25px;
+   max-width: 100%; /* Permite que la tarjeta use su tercio de pantalla */
 
   }
 
@@ -1620,3 +1721,6 @@ small {
     justify-content: center;
   }
 }
+
+
+
