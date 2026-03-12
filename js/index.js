@@ -364,21 +364,23 @@ function search() {
 
 /**** 6. MODALES Y ZOOM (Profesional) ****/
 function generarModalesHTML() {
+    // Definimos el número de teléfono como constante para facilitar cambios
     const PHONE_NUMBER = "584125869719";
-    const SITE_URL = window.location.origin + window.location.pathname; // URL limpia sin parámetros extra
+    const SITE_URL = window.location.href; // URL actual para que WhatsApp genere la vista previa
 
     const html = productos.map(prod => {
-        // El enlace se pone al final para forzar la previsualización de WA
+        // Formateamos el mensaje con la lógica original pero más profesional
         const mensajeWa = 
             `✨ *Consulta de Producto - Ashley Beauty* ✨\n\n` +
             `Hola, me gustaría información sobre:\n\n` +
             `🧩 *Producto:* ${prod.nombre}\n` +
-            `💰 *Precio:* ${prod.precio}\n\n` +
-            `¿Tienen disponibilidad? ¡Gracias!\n\n` +
-            `${SITE_URL}`; // El link al final ayuda a la detección del preview
+            `💰 *Precio:* ${prod.precio}\n` +
+            `🖼️ *Referencia:* ${SITE_URL}\n\n` + // Esto ayuda a que WA jale la imagen del sitio
+            `¿Tienen disponibilidad? ¡Gracias!`;
 
         const urlWa = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(mensajeWa)}`;
 
+        // Usamos Template Literals para un HTML más limpio
         return `
             <div class="preview" data-target="p-${prod.id}">
                 <i class="fas fa-times close-icon" aria-label="Cerrar"></i>
@@ -407,10 +409,6 @@ function generarModalesHTML() {
                 </div>
             </div>`;
     }).join('');
-
-    // No olvides insertar el 'html' en el contenedor correspondiente de tu DOM
-    document.querySelector('.products-preview').innerHTML = html;
-
 
     // Inyección segura en el DOM
     const container = $('.products-preview');
