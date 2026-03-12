@@ -365,7 +365,7 @@ function search() {
 /**** 6. MODALES Y ZOOM (Profesional) ****/
 function generarModalesHTML() {
     // Definimos el número de teléfono como constante para facilitar cambios
-    const PHONE_NUMBER = "584264906606";
+    const PHONE_NUMBER = "584125869719";
     const SITE_URL = window.location.href; // URL actual para que WhatsApp genere la vista previa
 
     const html = productos.map(prod => {
