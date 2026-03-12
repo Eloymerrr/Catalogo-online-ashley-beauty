@@ -2,6 +2,15 @@
 <html lang="es">
 
 <head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JQ79KLDLMT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JQ79KLDLMT');
+</script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -162,104 +171,84 @@
   <main>
 
     <!-- CARRUSEL -->
-    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
 
-      <div class="carousel-indicators">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
 
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  <div class="carousel-inner">
 
+    <div class="carousel-item active">
+      <a href="tienda.html?cat=skincare">
+        <img src="./img/okan-you-qmJGo0v1YMg-unsplash.jpg" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+      </a>
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1 id="h1">Skincare.</h1>
+          <p class="opacity-75 txt">Diversos Productos de las mejores marcas y la mejor calidad.</p>
+          <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html?cat=skincare"><span class="fas fa-shop "></span> Ver Skincare</a></p>
+        </div>
       </div>
-
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-
-          <img src="./img/okan-you-qmJGo0v1YMg-unsplash.jpg" class="bd-placeholder-img" width="100%" height="100%"
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" /></img>
-          <div class="container">
-            <div class="carousel-caption text-start">
-              <h1 id="h1">Skincare.</h1>
-              <p class="opacity-75 txt">Diversos Productos de las mejores marcas y la mejor calidad.</p>
-              <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html"><span
-                    class="fas fa-shop "></span> Ver todo</a></p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="carousel-item">
-          <img src="./img/william-shu-G8RhW9reUuc-unsplash.jpg" class="bd-placeholder-img " width="100%" height="100%"
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </img>
-          <div class="container">
-            <div class="carousel-caption">
-              <h1 id="h1">Makeup.</h1>
-              <p class="opacity-75 txt">Los mejores productos para tu makeup.</p>
-              <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html"><span
-                    class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver todo</a></p>
-
-            </div>
-          </div>
-        </div>
-
-
-        <div class="carousel-item">
-          <img src="./img/russel-bailo-yiXwgRfQMAI-unsplash.jpg" class="bd-placeholder-img" width="100%" height="100%"
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </img>
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1 id="h1">Aura & Aroma.</h1>
-              <p class="opacity-75 txt">Los mejores perfumes del mercado para ti.</p>
-              <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html"><span
-                    class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver todo</a></p>
-
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="carousel-item">
-          <img src="./img/fashion-needles-CHQ3Y0l5rf8-unsplash.jpg" class="bd-placeholder-img" width="100%"
-            height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-          <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-          </img>
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1 id="h1">Bolsos & Carteras</h1>
-              <p class="opacity-75 txt">La unión perfecta entre forma y función.</p>
-              <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html"><span
-                    class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver todo</a></p>
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
+
+    <div class="carousel-item">
+      <a href="tienda.html?cat=makeup">
+        <img src="./img/william-shu-G8RhW9reUuc-unsplash.jpg" class="bd-placeholder-img " width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+      </a>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1 id="h1">Makeup.</h1>
+          <p class="opacity-75 txt">Los mejores productos para tu makeup.</p>
+          <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html?cat=makeup"><span class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver Makeup</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <a href="tienda.html?cat=perfumes">
+        <img src="./img/russel-bailo-yiXwgRfQMAI-unsplash.jpg" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+      </a>
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1 id="h1">Aura & Aroma.</h1>
+          <p class="opacity-75 txt">Los mejores perfumes del mercado para ti.</p>
+          <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html?cat=perfumes"><span class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver Perfumes</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <a href="tienda.html?cat=Bolsos%20&%20Carteras">
+        <img src="./img/fashion-needles-CHQ3Y0l5rf8-unsplash.jpg" class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+      </a>
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1 id="h1">Bolsos & Carteras</h1>
+          <p class="opacity-75 txt">La unión perfecta entre forma y función.</p>
+          <p><a class="btn btn-lg btn-primary border-bottom border-start" href="tienda.html?cat=Bolsos & Carteras"><span class="fas fa-shop " style="position:relative; left:-5px;"></span>Ver Bolsos</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
     <!-- END CARRUSEL -->
 
 
@@ -1118,12 +1107,7 @@
     </script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="./js/slider.js"></script>
-  <script src="./js/main.js"></script>
   <script src="./js/index.js"></script>
-  <script src="./js/filtar-por-categorias.js"></script>
-  <script src="js/buscador-en-tiempo-real.js"></script>
-  <script src="./js/modal.js" defer></script>
 
 </body>
 
