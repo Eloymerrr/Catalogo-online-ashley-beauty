@@ -372,7 +372,7 @@ function generarModalesHTML() {
         // Formateamos el mensaje con la lógica original pero más profesional
         const mensajeWa = 
             `✨ *Consulta de Producto - Ashley Beauty* ✨\n\n` +
-            `Hola, me gustaría información sobre:\n` +
+            `Hola, me gustaría información sobre:\n\n` +
             `🧩 *Producto:* ${prod.nombre}\n` +
             `💰 *Precio:* ${prod.precio}\n` +
             `🖼️ *Referencia:* ${SITE_URL}\n\n` + // Esto ayuda a que WA jale la imagen del sitio
