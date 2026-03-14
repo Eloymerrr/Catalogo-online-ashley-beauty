@@ -149,6 +149,11 @@ const productos = [
     { id: "133", nombre: "Serum en cápsulas de vitaminas C", precio: "$a consultar", img: "./img/Skincare/Skincare (40).png", categoria: CAT.SKINCARE, desc: "Es un producto que puede proporcionar proteccion antioxidante para ayudar a defenderse de los radicales libres para la piel." },
     { id: "134", nombre: "Cepillo Capilar", precio: "$a consultar", img: "./img/Skincare/Skincare (39).png", categoria: CAT.SKINCARE, desc: "Es un dispositivo diseñado para facilitar la limpieza y masaje del cuero cabelludo durante el lavado del cabello." },
     { id: "135", nombre: "Crema vegana hidratante", precio: "$a consultar", img: "./img/Skincare/Skincare (36).png", categoria: CAT.SKINCARE, desc: "es un producto que ofrece hidratacion, nutricion y cuidado natural para la piel, ideal para aquellas personas que buscan productos respetuosos con el medio ambiente y libres de origen animal." },
+    { id: "136", nombre: "Gel de aloe vera 98%", precio: "$a consultar", img: "./img/Skincare/Skincare (34).jpg", categoria: CAT.SKINCARE, desc: "Es muy efectivo para controlar la grasa en la piel, eliminando así problemas como acné, granos, barros y puntos negros." },
+    { id: "137", nombre: "Cerave limpiador para el control del acné", precio: "$a consultar", img: "./img/Skincare/Skincare (33).jpg", categoria: CAT.SKINCARE, desc: "Este producto elimina el acné, reduce los puntos negros y mejora la apariencia de los poros."},
+    { id: "138", nombre: "Crecimiento de pestañas", precio: "$a consultar", img: "./img/Skincare/Skincare (32).jpg", categoria: CAT.SKINCARE, desc: "Mavala Double-Lash, Contiene ingredientes activos que ayudan a nutrir y fortalecer las pestañas, promoviendo un crecimiento saludable y voluminoso." },
+    { id: "139", nombre: "Crema aclarante de zonas intimas", precio: "$a consultar", img: "./img/Skincare/Skincare (31).jpg", categoria: CAT.SKINCARE, desc: "Esta fórmula especializada aclara eficazmente zonas íntimas, brindando una apariencia uniforme y luminosa." },
+    { id: "140", nombre: "Cerave limpiador renovador SA", precio: "$a consultar", img: "./img/Skincare/Skincare (30).jpg", categoria: CAT.SKINCARE, desc: "Ayudar a exfoliar suavemente la piel, eliminar las células muertas y promover una piel más suave y renovada."},
 
 
 ];
