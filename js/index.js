@@ -177,8 +177,6 @@ const productos = [
     { id: "161", nombre: "Crema facial limpiadora", precio: "$a consultar", img: "./img/Skincare/Skincare (7).jpg", categoria: CAT.SKINCARE, desc: "Es un producto de belleza diseñado para aclarar y blanquear la piel del rostro. Ayuda a reducir la apariencia de manchas oscuras, pecas, cicatrices y otros." },
     { id: "162", nombre: "CeraVe gel limpiador espumoso", precio: "$a consultar", img: "./img/Skincare/Skincare (5).jpg", categoria: CAT.SKINCARE, desc: "Diseñado para limpiar la piel de manera suave pero efectiva. Este gel limpiador crea una espuma ligera que elimina el exceso de grasa." },
     { id: "163", nombre: "CeraVe Locion para pieles asperas", precio: "$a consultar", img: "./img/Skincare/Skincare (4).jpg", categoria: CAT.SKINCARE, desc: "Está formulado para suavizar y mejorar la textura de la piel áspera y con protuberancias, gracias a su combinación de ácido salicílico y ácido hialurónico." },
-    { id: "164", nombre: "CeraVe, Limpiador suavizante", precio: "$a consultar", img: "./img/Skincare/Skincare (3).jpg", categoria: CAT.SKINCARE, desc: "El CeraVe SA Smoothing Cleanser,es un limpiador facial diseñado para ayudar a exfoliar suavemente la piel." },
-    { id: "165", nombre: "Crema Blanqueadora para rostro y cuerpo", precio: "$a consultar", img: "./img/Skincare/Skincare ().jpg", categoria: CAT.SKINCARE, desc: "" },
     //{ id: "", nombre: "", precio: "$a consultar", img: "./img/Skincare/Skincare ().jpg", categoria: CAT.SKINCARE, desc: "El Aichun Beauty crema blanqueadora para rostro y cuerpo, es un producto diseñado para aclarar y unificar el tono de la piel en el rostro y el cuerpo." },
 
 
