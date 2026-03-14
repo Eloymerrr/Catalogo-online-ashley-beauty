@@ -182,6 +182,8 @@ const productos = [
     { id: "166", nombre: "Valentino Uomo Born In Roma Extradose", precio: "$a consultar", img: "./img/Perfumes/Perfumes (82).jpg", categoria: CAT.PERFUMES, desc: "una fragancia masculina que destaca por ser una versión más intensa, rebelde y magnética de la línea original." },
     { id: "167", nombre: "Club de Nuit Intense Man Limited Edition (Parfum)", precio: "$a consultar", img: "./img/Perfumes/Perfumes (83).jpg", categoria: CAT.PERFUMES, desc: "Es una fragancia Amaderada Especiada. Es mundialmente conocida por su similitud con Creed Aventus, pero con una mayor concentración de aceites." },
     { id: "168", nombre: "Odyssey Mandarin Sky Elixir", precio: "$a consultar", img: "./img/Perfumes/Perfumes (84).jpg", categoria: CAT.PERFUMES, desc: "Pertenece a la familia Ámbar Amaderada. Es conocido por tener una vibra similar al famoso Scandal Pour Homme, pero con el toque distintivo de la línea Odyssey." },
+    { id: "169", nombre: "Coach C dorada ", precio: "$a consultar", img: "./img/B&C/B&C (4).jpg", categoria: CAT.BOLSOS, desc: "El Coach C dorada , es el equilibrio perfecto entre una billetera grande y un bolso pequeño, diferentes colores : blanco, beige, marron" },
+    { id: "170", nombre: "Coach Lana 23 Top con caja ", precio: "$a consultar", img: "./img/B&C/B&C (13).jpg", categoria: CAT.BOLSOS, desc: "específicamente inspirada en el modelo Lana. Es una pieza que combina un diseño minimalista con una estructura muy funcional y elegante." },
 
 
 ];
