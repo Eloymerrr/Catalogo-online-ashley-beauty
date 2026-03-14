@@ -412,6 +412,7 @@ function search() {
 /*** HASTA AQUI, RENDERIZADO Y BÚSQUEDA ****/
 
 
+
 /**** 6. MODALES Y ZOOM (Profesional) ****/
 function generarModalesHTML() {
     // Definimos el número de teléfono como constante para facilitar cambios
@@ -686,6 +687,55 @@ sliders.forEach((slider) => {
         counter = 0;
         scroll();
     });
+});
+
+
+$(document).ready(function() {
+    // 1. Obtener los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let catDesdeUrl = urlParams.get('cat');
+
+    // 2. Si existe el parámetro 'cat', filtrar
+    if (catDesdeUrl) {
+        // Normalizamos: pasamos a minúsculas para comparar fácil
+        let categoriaFiltrar = decodeURIComponent(catDesdeUrl).toLowerCase();
+
+        // AJUSTE ESPECIAL: Si el parámetro es "bolsos", lo direccionamos a la constante real
+        if (categoriaFiltrar === 'bolsos') {
+            categoriaFiltrar = "Bolsos & Carteras";
+        }
+
+        // Actualizamos la variable global
+        if (typeof categoriaActual !== 'undefined') {
+            categoriaActual = categoriaFiltrar;
+        }
+
+        // 3. Lógica de marcado visual
+        // Quitamos la clase activa de TODOS los botones
+        $('.category_item').removeClass('ct_item-active');
+        
+        // Marcamos el botón correspondiente (buscando tanto el nombre original como el ajustado)
+        $(`.category_item[category="${categoriaFiltrar}"]`).addClass('ct_item-active');
+
+        // 4. Ejecutar el filtrado del array
+        const productosFiltrados = productos.filter(p => 
+            p.categoria.toLowerCase() === categoriaFiltrar.toLowerCase()
+        );
+
+        // 5. Renderizar resultados
+        if (productosFiltrados.length > 0) {
+            renderizarProductos(productosFiltrados);
+        } else {
+            // Si no hay productos, mostramos todos pero mantenemos el botón marcado
+            renderizarProductos(productos);
+        }
+        
+    } else {
+        // Si no hay parámetro, "Todo" debe ser el único activo
+        $('.category_item').removeClass('ct_item-active');
+        $('.category_item[category="all"]').addClass('ct_item-active');
+        renderizarProductos(productos);
+    }
 });
 /***** HASTA AQUI ----- SLIDER ******/
 
